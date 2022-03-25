@@ -1,0 +1,9 @@
+@media screen and (max-width: 42em) {
+  .leaflet-top {
+    display: none;
+  }
+
+  .leaflet-bottom {
+    width: 100%;
+  }
+}
