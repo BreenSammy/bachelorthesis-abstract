@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thermal Modeling of Battery Systems on Transport Routes</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
   </head>
   <body>
     <header role="banner">
@@ -13,33 +15,126 @@
     <main>
       <h2>Introduction</h2>
       <p>
-        During my bachelor thesis I created a thermal simulation of the
+        During my bachelor thesis at the
+        <a
+          href="https://www.mos.ed.tum.de/en/ftm/home/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Institute of Automotive Technology</a
+        >
+        at the Technical University Munich I created a thermal simulation of the
         transport of lithium-ion battery cells, battery systems and electric
         vehicles. On this webpage I want to share an overview of my thesis and
         some of the results.
       </p>
+      <p>
+        The goal of the project was to gain a better understandig of the
+        expected temperature during transport of lithium-ion batteries. Storing
+        lithium-ion batteries outside of an optimal temperature interval can
+        accelerate the ageing process of the cells. Due to ageing the cells
+        loose parts of their capacity. <br />
+        Lithium-ion batteries are needed for an evergrowing list of different
+        products. Focus of the project was the production of battery cells and
+        systems for electric vehicles. Because the majority of battery cells is
+        currently being produced in Asia, but assembled into battery packs and
+        installed in electric vehicles in production plants worldwide, long
+        transports are expected. Those transports are typically carried out by
+        land and sea. Therefore different types of transport and packaging
+        needed to be evaluated.
+      </p>
       <h2>Methodology</h2>
+      <p>
+        To investigate the temperature during transport, a simulation approach
+        was chosen. This allowed to quickly analyze a large amount of different
+        transports. <br />
+        I used the following tools for the project:
+      </p>
       <ul>
-        <li>OpenFOAM for thermal CFD simulation running on a Linux machine</li>
         <li>
           Python for collecting historical temperature data and controlling the
           simulation
         </li>
-        <li>Visualisation of simulations results with Python and Paraview</li>
+        <li>
+          <a
+            href="https://www.openfoam.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >OpenFOAM</a
+          >
+          for thermal CFD simulation running on a Linux machine
+        </li>
+        <li>Visualization of simulations results with Python and Paraview</li>
+      </ul>
+      <p>
+        The thermal model was implemented with the CFD software OpenFOAM. To
+        generate the input data, control the thermal simulation in OpenFOAM and
+        to format and visualize the output data, a Python program was
+        implemented. <br />
+        As input of the simulation following variables were considerd:
+      </p>
+      <ul>
+        <li>
+          general data of the transport, i.e., vehicle, start datetime, stops
+        </li>
+        <li>
+          thermal properties and geometry of the cargo, packaging and carrier
+        </li>
+        <li>transport route</li>
+        <li>weather data along transport route</li>
+      </ul>
+      <p>
+        The transport route could either be defined by a set of coordinates or
+        via the internal routing service of the institute. The weather data was
+        gatherd with a self written tool, that downloads the historical
+        temperature data from the closest available weather station. This data
+        is available in the integrated-surface-database (<a
+          href="https://www.ncei.noaa.gov/products/land-based-station/integrated-surface-database"
+          target="_blank"
+          rel="noopener noreferrer"
+          >ISD</a
+        >) of NOAA.
+      </p>
+      <p>The OpenFOAM thermal model considerd following thermal effects:</p>
+      <ul>
+        <li>
+          conduction through the walls of the carrier and inside the batteries
+        </li>
+        <li>convection on the outside and inside of the carrier</li>
+        <li>solar radiation on the outside of the carrier</li>
       </ul>
       <h2>Results</h2>
-      <div class="transport-container">
-        <h4>Transport of battery cells from ... to ...</h4>
-        <hr />
+      <p>
+        One of the most interesting analysis was a transport from a cell
+        manufacturing plant in Poland to a car manufacturing plant in Germany.
+        Prior to my work, the institute conducted an experiment, where the
+        temperature inside of the truck during this transport was measured. In
+        figure 1 you can see the measured and the simulation data. The
+        simulation was able to fit the measured data well. The plot also shows
+        the ambient temperature that was retrieved from historical weather data.
+        <br />
+        Figure 2 shows a visualization of the transport simulation.
+      </p>
+      <figure class="figure">
+        <canvas id="myChart"></canvas>
+        <figcaption>
+          Figure 1: Measured and simulated temperature on a transport by truck
+        </figcaption>
+      </figure>
+      <figure class="figure">
         <embed
-          id="schenker-A"
+          id="grandlgruber"
           class="transport"
           type="text/html"
-          src="./html/transports/SchenkerA.html"
+          src="./html/transports/Grandlgruber.html"
         />
-      </div>
+        <figcaption>
+          Figure 2: Transport of battery cells from Wroclaw, Poland to
+          Stuttgart, Germany by truck in February
+        </figcaption>
+      </figure>
       <h2>Summary</h2>
       <p></p>
     </main>
   </body>
+  <script src="./src/plots.js"></script>
 </html>
