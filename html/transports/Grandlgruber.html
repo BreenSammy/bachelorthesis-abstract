@@ -670,11 +670,11 @@
 
   marker_84dc95556b1a4ae9bb251f470a3f6f5a.bindTooltip(
     `<div>
-                     
+
             <h4>Stop</h4>
             <b>Start:</b> 2019-02-08 02:23:41 <br>
             <b>End:</b> 2019-02-08 11:03:07 <br>
-            
+
                  </div>`,
     { sticky: true },
   );
@@ -1552,8 +1552,10 @@
     .select(".legend.leaflet-control")
     .append("svg")
     .attr("id", "legend")
-    .attr("width", 450)
-    .attr("height", 40);
+    .attr("width", "100%")
+    .attr("height", "100%")
+    .attr("position", "absolute")
+    .attr("viewBox", "0 0 450 40");
 
   color_map_63a8fec6cdb2480491eb4edcaa2ecc5a.g =
     color_map_63a8fec6cdb2480491eb4edcaa2ecc5a.svg

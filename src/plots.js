@@ -31,5 +31,8 @@ function makeChart(rawData) {
         },
       ],
     },
+    options: {
+      maintainAspectRatio: false,
+    },
   });
 }
