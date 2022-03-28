@@ -43,7 +43,7 @@
     font-size: 1rem;
   }
   header {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
   .figure {
     margin: 0.5rem;
@@ -64,7 +64,7 @@ header {
   color: white;
   background-color: var(--contemplory-color);
   box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 5px 0 rgb(0 0 0 / 23%);
-  padding: 0.5rem;
+  padding: 0.4rem;
 }
 
 main {
@@ -94,10 +94,8 @@ a {
   text-decoration: none;
 }
 
-.transport-container {
-  display: flex;
-  flex-direction: column;
-  max-width: 90%;
+a:link {
+  color: var(--contemplory-color-light);
 }
 
 .figure figcaption {
@@ -122,7 +120,7 @@ main hr {
 }
 
 .plot {
-  height: 50vh;
+  height: 40vh;
 }
 
 body::-webkit-scrollbar {
