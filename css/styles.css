@@ -67,6 +67,61 @@ header {
   padding: 0.4rem;
 }
 
+footer {
+  display: block;
+  color: white;
+  background-color: var(--contemplory-color);
+  padding: 0.4rem;
+}
+
+.footer-content {
+  max-width: 60rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.contact-box {
+  margin-left: 1rem;
+  padding: 5px;
+}
+
+.contact-box a:link {
+  color: white;
+}
+
+.contact-box p {
+  line-height: 16px; /* within paragraph */
+  margin-bottom: 16px; /* between paragraph */
+}
+
+.button-box {
+  margin-right: 1rem;
+}
+
+.button-box > button {
+  background-size: 36px;
+  border: none;
+  cursor: pointer;
+  width: 64px;
+  height: 64px;
+}
+
+.button-box > button:hover {
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.1);
+}
+
+.github {
+  background: url("./../images/github.png") center no-repeat;
+  filter: grayscale(1);
+}
+
+.linkedin {
+  background: url("./../images/linkedin.png") center no-repeat;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -124,13 +179,14 @@ main hr {
 }
 
 body::-webkit-scrollbar {
-  width: 12px;
+  width: 6px;
 }
 
 body::-webkit-scrollbar-track {
-  background: var(--contemplory-color);
+  /* background: var(--contemplory-color); */
+  background: white;
 }
 
 body::-webkit-scrollbar-thumb {
-  background: var(--contemplory-color-lighter);
+  background: var(--contemplory-color);
 }
